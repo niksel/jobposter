@@ -9,6 +9,10 @@ public class Job {
 	String title;
 	
 	Integer userId;
+	
+	public Job() {
+		
+	}
 
 	public Job(Integer jobId, String title, Integer userId) {
 		this.jobId = jobId;
@@ -53,11 +57,40 @@ public class Job {
 		return true;
 	}
 	
+	public Integer getJobId() {
+		return jobId;
+	}
+
+	public void setJobId(Integer jobId) {
+		this.jobId = jobId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	@Override
+	public String toString() {
+		return "Job [jobId=" + jobId + ", title=" + title + ", userId=" + userId + "]";
+	}
+
 	public Job createJobFromEntity(JobEntity jobEntity) {
 		
 		this.jobId = jobEntity.getJobId();
 		this.title = jobEntity.getTitle();
-		this.userId = jobEntity.getUserEntity().getUserId();
+		this.userId = jobEntity.getUserId();
 		return this;
 	}
 	

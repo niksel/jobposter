@@ -27,9 +27,13 @@ public class UserEntity {
 	
 	@Column(name = "address")
 	private String address;
+	
+	public UserEntity() {
+		
+	}
 
 	public UserEntity(Integer userId, String name, String email, String password, String phone, String address) {
-		super();
+		
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
