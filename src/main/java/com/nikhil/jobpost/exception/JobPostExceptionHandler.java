@@ -14,4 +14,9 @@ public class JobPostExceptionHandler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler(NumberFormatException.class)
+	public ResponseEntity<Object> handleNumberFormatException(NumberFormatException ex) {
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
 }

@@ -40,5 +40,18 @@ public class JobService {
 		}
 		return jobs;
 	}
+	
+	public List<Job> getAllJobsForUser(Integer userId) throws UserNotFoundException {
+		
+		List<JobEntity> jobEntities = jobRepository.getAllJobsForAUser(userId);
+		if(!userRepository.existsById(userId))
+			throw new UserNotFoundException("User with user id " + userId + " does not exist!");
+		List<Job> jobs = new ArrayList<>();
+		for(JobEntity entity : jobEntities) {
+			Job job = new Job(entity.getJobId(), entity.getTitle(), entity.getUserId());
+			jobs.add(job);
+		}
+		return jobs;
+	}
 
 }

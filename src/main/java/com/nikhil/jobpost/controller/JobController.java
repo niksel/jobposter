@@ -44,8 +44,8 @@ public class JobController {
 	}
 	
 	@GetMapping("/getJobs")
-	public List<Job> getAllJobsForUser(@RequestParam(name = "user_id") String userId) {
-		return null;
+	public List<Job> getAllJobsForUser(@RequestParam(name = "user_id") String userId) throws NumberFormatException, UserNotFoundException {
+		return jobService.getAllJobsForUser(Integer.parseInt(userId));
 	}
 	
 	@GetMapping("/getAllJobs")
