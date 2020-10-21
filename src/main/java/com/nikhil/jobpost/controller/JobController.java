@@ -37,7 +37,7 @@ public class JobController {
 	}
 	
 	@PostMapping("/create/job")
-	public ResponseEntity<Job> createJobForUser(@RequestBody Job job) throws UserNotFoundException {
+	public ResponseEntity<Job> createJobForUser(@RequestBody @Valid Job job) throws UserNotFoundException {
 		
 		job = jobService.createJob(job);
 		return new ResponseEntity<Job>(job, HttpStatus.CREATED);	
