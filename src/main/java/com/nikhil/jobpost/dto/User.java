@@ -1,20 +1,33 @@
 package com.nikhil.jobpost.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import com.nikhil.jobpost.entity.UserEntity;
 
 public class User {
 
-	Integer userId;
+	@NotNull(message="User Id is a required field")
+	private Integer userId;
 	
-	String name;
+	@NotNull(message="Name is a required field")
+	@Size(min=1, max=40, message="Name has to be at least 1 and utmost 40 characters long")
+	private String name;
 	
-	String email;
+	@NotNull(message="Email is a required field")
+	@Size(min=1, max=40, message="Email has to be at least 1 and utmost 40 characters long")
+	private String email;
 	
-	String password;
+	@NotNull(message="Password is a required field")
+	@Size(min=1, max=20, message="Password has to be at least 1 and utmost 20 characters long")
+	private String password;
 	
-	String phone;
+	@NotNull(message="Phone is a required field")
+	@Size(min=1, max=10, message="Phone has to be at least 1 and utmost 10 characters long")
+	private String phone;
 	
-	String address;
+	@NotNull(message="Address is a required field")
+	@Size(min=1, max=50, message="Address has to be at least 1 and utmost 50 characters long")
+	private String address;
 	
 	public User() {
 		

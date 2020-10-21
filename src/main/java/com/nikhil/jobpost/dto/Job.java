@@ -1,14 +1,20 @@
 package com.nikhil.jobpost.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import com.nikhil.jobpost.entity.JobEntity;
 
 public class Job {
 
-	Integer jobId;
+	@NotNull(message="Job Id is a required field")
+	private Integer jobId;
 	
-	String title;
+	@NotNull(message="Title is a required field")
+	@Size(min=1, max=20, message="Job Title has to be at least 1 and utmost 40 characters long")
+	private String title;
 	
-	Integer userId;
+	@NotNull(message="User Id is a required field")
+	private Integer userId;
 	
 	public Job() {
 		
